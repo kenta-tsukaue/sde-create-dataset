@@ -119,7 +119,7 @@ for o in dir:
     for i in range(32):
         standard_matrix.append(standard_vector)
     standard_tensor = []
-    for i in range(3):
+    for i in range(10):
         standard_tensor.append(standard_matrix)
 
 
@@ -129,26 +129,26 @@ for o in dir:
         x = int(i[0])
         y = int(i[1])
         #print(x, y, i[2])
-        #if i[2] >= z_list[0] and i[2] < z_list[1]:
-            #standard_tensor[0][x][y] += 1
-        #elif i[2] >= z_list[1] and i[2] < z_list[2]:
-            #standard_tensor[1][x][y] += 1
-        if i[2] >= z_list[2] and i[2] < z_list[3]:
+        if i[2] >= z_list[0] and i[2] < z_list[1]:
             standard_tensor[0][x][y] += 1
-        #elif i[2] >= z_list[3] and i[2] < z_list[4]:
-            #standard_tensor[3][x][y] +=1
-        #elif i[2] >= z_list[4] and i[2] < z_list[5]:
-            #standard_tensor[4][x][y] +=1
+        elif i[2] >= z_list[1] and i[2] < z_list[2]:
+            standard_tensor[1][x][y] += 1
+        elif i[2] >= z_list[2] and i[2] < z_list[3]:
+            standard_tensor[2][x][y] += 1
+        elif i[2] >= z_list[3] and i[2] < z_list[4]:
+            standard_tensor[3][x][y] +=1
+        elif i[2] >= z_list[4] and i[2] < z_list[5]:
+            standard_tensor[4][x][y] +=1
         elif i[2] >= z_list[5] and i[2] < z_list[6]:
-            standard_tensor[1][x][y] +=1
-        #elif i[2] >= z_list[6] and i[2] < z_list[7]:
-            #standard_tensor[6][x][y] +=1
-        #elif i[2] >= z_list[7] and i[2] < z_list[8]:
-            #standard_tensor[7][x][y] +=1
+            standard_tensor[5][x][y] +=1
+        elif i[2] >= z_list[6] and i[2] < z_list[7]:
+            standard_tensor[6][x][y] +=1
+        elif i[2] >= z_list[7] and i[2] < z_list[8]:
+            standard_tensor[7][x][y] +=1
         elif i[2] >= z_list[8] and i[2] < z_list[9]:
-            standard_tensor[2][x][y] +=1
-        #else:
-            #standard_tensor[9][x][y] +=1
+            standard_tensor[8][x][y] +=1
+        else:
+            standard_tensor[9][x][y] +=1
 
 
 
@@ -158,7 +158,7 @@ for o in dir:
 
     """それぞれの要素を 0 ~ 256 の範囲に収める"""
     temp=0
-    for k in range(3):
+    for k in range(10):
         for i in range(32):
             s = standard_tensor[k][i]
             for j in range(32):
@@ -204,7 +204,7 @@ for o in dir:
     channel_file_path_test = "test_tensors/" + o[:-4]+".npy"
 
     #パス名(/public/tsukaue/graduation/sde-datas/)
-    channel_data_path = os.path.join(sde_datas_path, "data-channel-3") #ここのdata_channel_3をパラメータで受け取れるようにしたい
+    channel_data_path = os.path.join(sde_datas_path, "data-channel-10-2") #ここのdata_channel_3をパラメータで受け取れるようにしたい
     
     if random_num <= 0.8:
         channel_file_path = os.path.join(channel_data_path, channel_file_path_train)
