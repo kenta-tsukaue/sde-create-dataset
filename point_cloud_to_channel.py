@@ -119,7 +119,7 @@ for o in dir:
     for i in range(32):
         standard_matrix.append(standard_vector)
     standard_tensor = []
-    for i in range(10):
+    for i in range(3):
         standard_tensor.append(standard_matrix)
 
 
@@ -129,26 +129,26 @@ for o in dir:
         x = int(i[0])
         y = int(i[1])
         #print(x, y, i[2])
-        if i[2] >= z_list[0] and i[2] < z_list[1]:
+        #if i[2] >= z_list[0] and i[2] < z_list[1]:
+            #standard_tensor[0][x][y] += 1
+        #elif i[2] >= z_list[1] and i[2] < z_list[2]:
+            #standard_tensor[1][x][y] += 1
+        if i[2] >= z_list[2] and i[2] < z_list[3]:
             standard_tensor[0][x][y] += 1
-        elif i[2] >= z_list[1] and i[2] < z_list[2]:
-            standard_tensor[1][x][y] += 1
-        elif i[2] >= z_list[2] and i[2] < z_list[3]:
-            standard_tensor[2][x][y] += 1
-        elif i[2] >= z_list[3] and i[2] < z_list[4]:
-            standard_tensor[3][x][y] +=1
-        elif i[2] >= z_list[4] and i[2] < z_list[5]:
-            standard_tensor[4][x][y] +=1
+        #elif i[2] >= z_list[3] and i[2] < z_list[4]:
+            #standard_tensor[3][x][y] +=1
+        #elif i[2] >= z_list[4] and i[2] < z_list[5]:
+            #standard_tensor[4][x][y] +=1
         elif i[2] >= z_list[5] and i[2] < z_list[6]:
-            standard_tensor[5][x][y] +=1
-        elif i[2] >= z_list[6] and i[2] < z_list[7]:
-            standard_tensor[6][x][y] +=1
-        elif i[2] >= z_list[7] and i[2] < z_list[8]:
-            standard_tensor[7][x][y] +=1
+            standard_tensor[1][x][y] +=1
+        #elif i[2] >= z_list[6] and i[2] < z_list[7]:
+            #standard_tensor[6][x][y] +=1
+        #elif i[2] >= z_list[7] and i[2] < z_list[8]:
+            #standard_tensor[7][x][y] +=1
         elif i[2] >= z_list[8] and i[2] < z_list[9]:
-            standard_tensor[8][x][y] +=1
-        else:
-            standard_tensor[9][x][y] +=1
+            standard_tensor[2][x][y] +=1
+        #else:
+            #standard_tensor[9][x][y] +=1
 
 
 
