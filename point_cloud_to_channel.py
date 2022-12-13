@@ -11,7 +11,7 @@ data_pointCloud_path = os.path.join(sde_datas_path, "data-pointCloud")
 dir = os.listdir(data_pointCloud_path)
 
 for o in dir:
-    file_path = os.path.join(dir, o)
+    file_path = os.path.join(data_pointCloud_path, o)
     try:
         with open(file_path, 'rb') as f:
             pointData = pickle.load(f)
