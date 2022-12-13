@@ -6,11 +6,14 @@ import math
 import matplotlib.pyplot as plt
 import random
 
-dir=os.listdir("./dataset")
+sde_datas_path = "/public/tsukaue/graduation/sde-datas/"
+data_pointCloud_path = os.path.join(sde_datas_path, "data_pointCloud")
+dir = os.listdir(data_pointCloud_path)
 
 for o in dir:
+    file_path = os.path.join(dir, o)
     try:
-        with open("./dataset/" + o, 'rb') as f:
+        with open(file_path, 'rb') as f:
             pointData = pickle.load(f)
     except FileNotFoundError:
         continue
@@ -196,10 +199,18 @@ for o in dir:
 
     """トレーニング用と検証用に分けて保存する"""
     random_num = random.random()
-    file_name="./databinary/test_tensors/"+o[:-4]+".npy"
+    #ファイル名
+    channel_file_path_train = "train_tensors" + o[:-4]+".npy"
+    channel_file_path_test = "test_tensors" + o[:-4]+".npy"
+
+    #パス名(/public/tsukaue/graduation/sde-datas/)
+    channel_data_path = os.path.join(sde_datas_path, "data_channel_3") #ここのdata_channel_3をパラメータで受け取れるようにしたい
+    
     if random_num <= 0.8:
-        file_name="./databinary/train_tensors/"+o[:-4]+".npy"
-    with open(file_name,"wb") as f:
+        channel_file_path = os.path.join(channel_data_path, channel_file_path_train)
+    else:
+        channel_file_path = os.path.join(channel_data_path, channel_file_path_test)
+    with open(channel_file_path,"wb") as f:
         pickle.dump(standard_tensor,f)
 
 
