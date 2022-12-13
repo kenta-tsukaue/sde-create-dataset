@@ -204,7 +204,7 @@ for o in dir:
     channel_file_path_test = "test_tensors/" + o[:-4]+".npy"
 
     #パス名(/public/tsukaue/graduation/sde-datas/)
-    channel_data_path = os.path.join(sde_datas_path, "data_channel_3") #ここのdata_channel_3をパラメータで受け取れるようにしたい
+    channel_data_path = os.path.join(sde_datas_path, "data-channel3") #ここのdata_channel_3をパラメータで受け取れるようにしたい
     
     if random_num <= 0.8:
         channel_file_path = os.path.join(channel_data_path, channel_file_path_train)
