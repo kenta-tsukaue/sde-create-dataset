@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import random
 
 sde_datas_path = "/public/tsukaue/graduation/sde-datas/"
-data_pointCloud_path = os.path.join(sde_datas_path, "data_pointCloud")
+data_pointCloud_path = os.path.join(sde_datas_path, "data-pointCloud")
 dir = os.listdir(data_pointCloud_path)
 
 for o in dir:
