@@ -200,8 +200,8 @@ for o in dir:
     """トレーニング用と検証用に分けて保存する"""
     random_num = random.random()
     #ファイル名
-    channel_file_path_train = "train_tensors" + o[:-4]+".npy"
-    channel_file_path_test = "test_tensors" + o[:-4]+".npy"
+    channel_file_path_train = "train_tensors/" + o[:-4]+".npy"
+    channel_file_path_test = "test_tensors/" + o[:-4]+".npy"
 
     #パス名(/public/tsukaue/graduation/sde-datas/)
     channel_data_path = os.path.join(sde_datas_path, "data_channel_3") #ここのdata_channel_3をパラメータで受け取れるようにしたい
