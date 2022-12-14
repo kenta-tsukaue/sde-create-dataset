@@ -33,7 +33,7 @@ class DataSet(tfds.core.GeneratorBasedBuilder):
         description=_DESCRIPTION,
         features=tfds.features.FeaturesDict({
             # These are the features of your dataset like images, labels ...
-            'tensor': tfds.features.Tensor(shape=(32,32,3), dtype="int32"),
+            'tensor': tfds.features.Tensor(shape=(32,32,10), dtype="int32"),
             'label': tfds.features.ClassLabel(names=['no', 'yes']),
         }),
         # If there's a common (input, target) tuple from the
@@ -47,7 +47,7 @@ class DataSet(tfds.core.GeneratorBasedBuilder):
   def _split_generators(self, dl_manager: tfds.download.DownloadManager):
     """Returns SplitGenerators."""
     # TODO(data_set): Downloads the data and defines the splits
-    path = "/public/tsukaue/graduation/sde-datas/data-channel-3"
+    path = "/public/tsukaue/graduation/sde-datas/data-channel-10-2"
 
     # TODO(data_set): Returns the Dict[split names, Iterator[Key, Example]]
     return {
