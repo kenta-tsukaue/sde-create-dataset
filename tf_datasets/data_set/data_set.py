@@ -33,7 +33,7 @@ class DataSet(tfds.core.GeneratorBasedBuilder):
         description=_DESCRIPTION,
         features=tfds.features.FeaturesDict({
             # These are the features of your dataset like images, labels ...
-            'tensor': tfds.features.Tensor(shape=(32,32,32), dtype="int32"),
+            'tensor': tfds.features.Tensor(shape=(64,64,64), dtype="int32"),
             'label': tfds.features.ClassLabel(names=['no', 'yes']),
         }),
         # If there's a common (input, target) tuple from the
