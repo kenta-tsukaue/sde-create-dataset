@@ -44,7 +44,7 @@ for d in dir:
                 print("ポイント数が足りないので保存しません")
             else:
                 #file04=os.path.join(file01,"models/model_normalized.ply")
-                file04="/public/tsukaue/graduation/sde-datas/data-pointCloud-10000point/" + d + s + ".ply"
+                file04="/public/tsukaue/graduation/sde-datas/data-pointCloud-10000/" + d + s + ".ply"
                 get_point_cloud.save_point(pointCloud, file04)
         except FileNotFoundError:
             print("データがないのでスキップ")
