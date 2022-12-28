@@ -100,7 +100,7 @@ def get_10000_point(vertex:np.array, faces:list):
 def point_num_to_10000(vertex):
     while vertex.shape[0] > 10000:
         max_num = vertex.shape[0] - 1
-        print(max_num)
+        #print(max_num)
         #0 ~ max_numまでの数をランダム採取
         delete_index_num = int(random.uniform(0, max_num))
         vertex = np.delete(vertex, delete_index_num, 0)
