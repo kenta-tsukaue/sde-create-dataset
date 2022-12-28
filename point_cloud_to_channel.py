@@ -76,11 +76,11 @@ for o in dir:
 
 
     """ziku_maxからxとyの値を修正する"""
-    ratio = 32 / ziku_max
+    ratio = 16 / ziku_max
 
     for i in pointData:
-        i[0] = int(math.ceil(i[0] * ratio + 31))
-        i[1] = int(math.ceil(i[1] * ratio + 31))
+        i[0] = int(math.ceil(i[0] * ratio + 15))
+        i[1] = int(math.ceil(i[1] * ratio + 15))
     # print(pointData)
 
 
@@ -93,14 +93,14 @@ for o in dir:
     print("======z======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
 
     z_range = z_max -z_min
-    step = z_range / 64
+    step = z_range / 32
     #step = math.floor(step * 1000) / 1000
     print("z方面の範囲は" + str(z_range))
     print("step幅は" + str(step))
 
     z_list = []
 
-    for i in range(64):
+    for i in range(32):
         z = z_min + i * step
         #z_list.append(math.floor(z * 100) / 100)
         z_list.append(z)
@@ -113,13 +113,13 @@ for o in dir:
 
     """基本の画像の行列を作成"""
     standard_vector = []
-    for i in range(64):
+    for i in range(32):
         standard_vector.append(0)
     standard_matrix = []
-    for i in range(64):
+    for i in range(32):
         standard_matrix.append(standard_vector)
     standard_tensor = []
-    for i in range(64):
+    for i in range(32):
         standard_tensor.append(standard_matrix)
 
 
