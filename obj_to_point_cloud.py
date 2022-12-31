@@ -43,8 +43,20 @@ for d in dir:
             if(pointCloud.shape[0] < 10000):
                 print("ポイント数が足りないので保存しません")
             else:
+                pointCloud_2 = np.random.permutation(pointCloud)
+                pointCloud_3 = np.random.permutation(pointCloud)
+                pointCloud_4 = np.random.permutation(pointCloud)
+                pointCloud_5 = np.random.permutation(pointCloud)
                 #file04=os.path.join(file01,"models/model_normalized.ply")
-                file04="/public/tsukaue/graduation/sde-datas/data-pointCloud-10000/" + d + s + ".ply"
-                get_point_cloud.save_point(pointCloud, file04)
+                file04_1="/public/tsukaue/graduation/sde-datas/data-point-10000-pre-2/" + d + s + "1.ply"
+                file04_2="/public/tsukaue/graduation/sde-datas/data-point-10000-pre-2/" + d + s + "2.ply"
+                file04_3="/public/tsukaue/graduation/sde-datas/data-point-10000-pre-2/" + d + s + "3.ply"
+                file04_4="/public/tsukaue/graduation/sde-datas/data-point-10000-pre-2/" + d + s + "4.ply"
+                file04_5="/public/tsukaue/graduation/sde-datas/data-point-10000-pre-2/" + d + s + "5.ply"
+                get_point_cloud.save_point(pointCloud, file04_1)
+                get_point_cloud.save_point(pointCloud_2, file04_2)
+                get_point_cloud.save_point(pointCloud_3, file04_3)
+                get_point_cloud.save_point(pointCloud_4, file04_4)
+                get_point_cloud.save_point(pointCloud_5, file04_5)
         except FileNotFoundError:
             print("データがないのでスキップ")
