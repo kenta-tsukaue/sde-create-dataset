@@ -3,7 +3,7 @@ import open3d as o3d
 import numpy as np
 import os
 
-file_path = "./iter_95000"
+file_path = "./check_batch"
 dir = os.listdir(file_path)
 for file in dir:
     path = os.path.join(file_path, file)

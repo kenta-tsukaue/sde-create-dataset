@@ -106,6 +106,41 @@ def point_num_to_10000(vertex):
         vertex = np.delete(vertex, delete_index_num, 0)
     return vertex
 
+#点群を正規化する
+def norm_point(vertex):
+    # 最大値、最小値の更新
+    for i in vertex:
+        if i[0] > x_max:
+            x_max = i[0]
+        elif i[0] < x_min:
+            x_min = i[0]
+
+        if i[1] > y_max:
+            y_max = i[1]
+        elif i[1] < y_min:
+            y_min = i[1]
+
+        if i[2] > z_max:
+            z_max = i[2]
+        elif i[2] < z_min:
+            z_min = i[2]
+    
+    #XとYとZの最大値からziku_maxを取得する
+    print("======x======\n" + "最小値:" + str(x_min) + "\n最大値" + str(x_max))
+    print("======y======\n" + "最小値:" + str(y_min) + "\n最大値" + str(y_max))
+    ziku_max = x_max
+    if ziku_max < abs(x_min):
+        ziku_max = abs(x_min)
+    if ziku_max < abs(y_min):
+        ziku_max = abs(y_min)
+    if ziku_max < y_max:
+        ziku_max = y_max
+    if ziku_max < z_max:
+        ziku_max = z_max
+    if ziku_max < abs(z_min):
+        ziku_max = abs(z_min)
+    print("軸の最大は" + str(ziku_max))
+
 #保存
 def save_point(points, file_name):
     #print(points)
