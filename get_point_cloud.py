@@ -109,6 +109,17 @@ def point_num_to_10000(vertex):
 #点群を正規化する
 def norm_point(vertex):
     # 最大値、最小値の更新
+    #xの最大値と最小値を出す
+    x_min = 0
+    x_max = 0
+
+    #yの最大値と最小値を出す
+    y_min = 0
+    y_max = 0
+
+    #zの最大値と最小値を出す
+    z_min = 0
+    z_max = 0
     for i in vertex:
         if i[0] > x_max:
             x_max = i[0]
