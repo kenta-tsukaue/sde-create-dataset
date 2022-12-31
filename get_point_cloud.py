@@ -139,6 +139,7 @@ def norm_point(vertex):
     #XとYとZの最大値からziku_maxを取得する
     print("======x======\n" + "最小値:" + str(x_min) + "\n最大値" + str(x_max))
     print("======y======\n" + "最小値:" + str(y_min) + "\n最大値" + str(y_max))
+    print("======y======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
     ziku_max = x_max
     if ziku_max < abs(x_min):
         ziku_max = abs(x_min)
