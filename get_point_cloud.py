@@ -55,12 +55,12 @@ def get_more_point(vertex:np.array, faces:list):
         return vertex
 
 def get_10000_point(vertex:np.array, faces:list):
-    print("頂点の数" + str(vertex.shape[0]))
-    print("表面の数" + str(len(faces)))
+    #print("頂点の数" + str(vertex.shape[0]))
+    #print("表面の数" + str(len(faces)))
     if(vertex.shape[0] > 10000):
-        print("増量後の頂点の数" + str(vertex.shape[0]))
+        #print("増量後の頂点の数" + str(vertex.shape[0]))
         vertex = point_num_to_10000(vertex)
-        print("修正後の頂点の数" + str(vertex.shape[0]))
+        #print("修正後の頂点の数" + str(vertex.shape[0]))
         return(vertex)
     else:
         for index, i in enumerate(faces):
@@ -91,9 +91,9 @@ def get_10000_point(vertex:np.array, faces:list):
                     point = a + s * vec_ab + t * vec_ac
                     vertex = np.concatenate([vertex, np.array([point])])
                     num += 1
-        print("増量後の頂点の数" + str(vertex.shape[0]))
+        #print("増量後の頂点の数" + str(vertex.shape[0]))
         vertex = point_num_to_10000(vertex)
-        print("修正後の頂点の数" + str(vertex.shape[0]))
+        #print("修正後の頂点の数" + str(vertex.shape[0]))
         return vertex
 
 #ポイント数を10000にする
@@ -139,7 +139,7 @@ def norm_point(vertex):
     #XとYとZの最大値からziku_maxを取得する
     print("======x======\n" + "最小値:" + str(x_min) + "\n最大値" + str(x_max))
     print("======y======\n" + "最小値:" + str(y_min) + "\n最大値" + str(y_max))
-    print("======y======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
+    print("======z======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
     ziku_max = x_max
     if ziku_max < abs(x_min):
         ziku_max = abs(x_min)
