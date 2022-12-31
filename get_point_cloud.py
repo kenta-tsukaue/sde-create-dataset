@@ -77,8 +77,8 @@ def get_10000_point(vertex:np.array, faces:list):
             #print(get_norm(vec_ab) ** 2 * get_norm(vec_ac) ** 2 - np.dot(vec_ab, vec_ac) ** 2)
             S = 0.5 * np.sqrt(get_norm(vec_ab) ** 2 * get_norm(vec_ac) ** 2 - np.dot(vec_ab, vec_ac) ** 2)
 
-            if(index % 1000 == 0):
-                print(S)
+            #if(index % 1000 == 0):
+            #    print(S)
 
             num = 0
             point_num = S * 1000
