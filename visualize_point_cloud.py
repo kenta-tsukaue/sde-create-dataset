@@ -3,7 +3,9 @@ import open3d as o3d
 import numpy as np
 import os
 
-file_path = "../SDE結果/point-1/iter_170000"
+file_path = "../SDE結果/point-2/iter_325000"
+#file_path = "iter_50000"
+
 dir = os.listdir(file_path)
 for file in dir:
     path = os.path.join(file_path, file)
