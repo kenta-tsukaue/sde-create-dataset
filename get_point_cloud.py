@@ -152,7 +152,7 @@ def norm_point(vertex):
     if ziku_max < abs(z_min):
         ziku_max = abs(z_min)
     print("軸の最大は" + str(ziku_max))
-    ratio = 0.1 / ziku_max
+    ratio = 1 / ziku_max
 
     return vertex * ratio
 

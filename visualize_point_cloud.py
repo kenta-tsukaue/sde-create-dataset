@@ -3,12 +3,12 @@ import open3d as o3d
 import numpy as np
 import os
 
-file_path = "./test"
+file_path = "../SDE結果/point-1/iter_170000"
 dir = os.listdir(file_path)
 for file in dir:
     path = os.path.join(file_path, file)
     with open(path, 'rb') as f:
-        pointData = pickle.load(f)
+        pointData = np.load(f)
     x_min = 0
     x_max = 0
 
