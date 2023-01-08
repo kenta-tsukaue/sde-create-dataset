@@ -28,7 +28,6 @@ for d in dir:
     while len(save_path_folder_listdir) <= 5100:
         print("もう一周行います")
         for s in dir1: 
-            print("31")
             if len(save_path_folder_listdir) > 5100:
                 print("この項目はデータ数5100に達したので生成は行いません")
                 continue
@@ -59,7 +58,6 @@ for d in dir:
                     s3=a[2].split("/")[0]
                     point3.append([int(s1),int(s2),int(s3)])
                 #point3 = np.array(point3)
-                print("62")
                 pointCloud = get_point_cloud.get_10000_point(points, point3)
                 
                 print("point数", pointCloud.shape[0])
