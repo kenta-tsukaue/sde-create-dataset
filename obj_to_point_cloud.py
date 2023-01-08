@@ -4,11 +4,9 @@ import get_point_cloud
 path="/public/yasudak/tsukaue/data/ShapeNetCore.v2/"
 dir=os.listdir(path)
 for d in dir:
-    #print("===============================================================================================================")
-    #print("===============================================================================================================")
-    #print("==================================================" + d + "==================================================")
-    #print("===============================================================================================================")
-    #print("===============================================================================================================")
+    if(d != "sofa"):
+        print("スキップ")
+        continue
     file00=os.path.join(path,d)
     dir1=os.listdir(file00)
     for s in dir1:
@@ -40,12 +38,18 @@ for d in dir:
                 point3.append([int(s1),int(s2),int(s3)])
             #point3 = np.array(point3)
             pointCloud = get_point_cloud.get_10000_point(points, point3)
+            pointCloud = get_point_cloud.norm_point(pointCloud)
+            #file04=os.path.join(file01,"models/model_normalized.ply")
+            file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/sofa" + d + s + ".ply"
+            get_point_cloud.save_point(pointCloud, file04)
+            """
             if(pointCloud.shape[0] < 10000):
                 print("ポイント数が足りないので保存しません")
             else:
                 pointCloud = get_point_cloud.norm_point(pointCloud)
                 #file04=os.path.join(file01,"models/model_normalized.ply")
-                file04="/public/tsukaue/graduation/sde-datas/data-point-10000-pre-4/" + d + s + ".ply"
+                file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/sofa" + d + s + ".ply"
                 get_point_cloud.save_point(pointCloud, file04)
+            """
         except FileNotFoundError:
             print("データがないのでスキップ")
