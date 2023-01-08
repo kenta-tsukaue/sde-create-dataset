@@ -83,7 +83,7 @@ def get_10000_point(vertex:np.array, faces:list):
             num = 0
             point_num = S * 3000
             
-            print(86, point_num)
+            #print(86, point_num)
             #点を打つ()
             while num < point_num:
                 s = random.random()
