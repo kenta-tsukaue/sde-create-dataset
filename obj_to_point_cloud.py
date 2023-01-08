@@ -21,10 +21,11 @@ for d in dir:
     
     file00=os.path.join(path,d)
     dir1=os.listdir(file00)
+    print("ファイル名は", folder_name)
     save_path_folder = os.path.join(save_path,folder_name)
     save_path_folder_listdir = os.listdir(save_path_folder)
     print("この項目の現在のファイルの数は", len(save_path_folder_listdir))
-    while len(save_path_folder_listdir) <= 610:
+    while len(save_path_folder_listdir) <= 50:
         print("もう一周行います")
         for s in dir1: 
             if len(save_path_folder_listdir) > 50:
