@@ -74,15 +74,16 @@ def get_10000_point(vertex:np.array, faces:list):
             vec_ac = c - a
 
             #面積を出す
-            print(get_norm(vec_ab) ** 2 * get_norm(vec_ac) ** 2 - np.dot(vec_ab, vec_ac) ** 2)
+            #print(get_norm(vec_ab) ** 2 * get_norm(vec_ac) ** 2 - np.dot(vec_ab, vec_ac) ** 2)
             S = 0.5 * np.sqrt(get_norm(vec_ab) ** 2 * get_norm(vec_ac) ** 2 - np.dot(vec_ab, vec_ac) ** 2)
-            print(S)
+            #print(S)
             #if(index % 1000 == 0):
             #    print(S)
 
             num = 0
-            point_num = S * 30700
-
+            point_num = S * 3000
+            
+            print(point_num)
             #点を打つ()
             while num < point_num:
                 s = random.random()
