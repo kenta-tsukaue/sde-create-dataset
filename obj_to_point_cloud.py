@@ -9,15 +9,10 @@ dir=os.listdir(path)
 for d in dir:
     folder_name = ""
     print("項目は", d)
-    if(d!="sofa" and d!="cellPhone" and d!="cellPhone2" and d!="box" and d!="box2" and d!="box3" and d!="box4" and d!="cap" and d!="bench" and d!="bottle" and d!="bowl" and d!="can" and d!="bag" and d!="bathtub"):
+    if(d!="sofa" and d!="cellPhone" and d!="box" and d!="cap" and d!="bench" and d!="bottle" and d!="bowl" and d!="can" and d!="bag" and d!="bathtub"):
         print("スキップ")
         continue
-    if d == "sofa" or d == "cap" or d == "bag" or d == "bench" or d == "bottle" or d == "bowl" or d == "can" or d == "bathtub":
-        folder_name = d
-    elif d == "cellPhone" and d == "cellPhone2":
-        folder_name = "cellPhone"
-    else:
-        folder_name = "box"
+    folder_name = d
     
     file00=os.path.join(path,d)
     dir1=os.listdir(file00)
