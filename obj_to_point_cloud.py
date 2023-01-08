@@ -48,7 +48,7 @@ for d in dir:
             else:
                 pointCloud = get_point_cloud.norm_point(pointCloud)
                 #file04=os.path.join(file01,"models/model_normalized.ply")
-                file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/sofa" + d + s + ".ply"
+                file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/sofa/" + d + s + ".ply"
                 get_point_cloud.save_point(pointCloud, file04)
             """
         except FileNotFoundError:
