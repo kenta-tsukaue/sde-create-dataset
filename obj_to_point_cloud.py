@@ -4,6 +4,7 @@ import get_point_cloud
 path="/public/yasudak/tsukaue/data/ShapeNetCore.v2/"
 dir=os.listdir(path)
 for d in dir:
+    print(d)
     if(d != "sofa"):
         print("スキップ")
         continue
@@ -39,6 +40,7 @@ for d in dir:
             #point3 = np.array(point3)
             pointCloud = get_point_cloud.get_10000_point(points, point3)
             
+            print("point数", pointCloud.shape[0])
             if(pointCloud.shape[0] < 10000):
                 print("ポイント数が足りないので保存しません")
             else:
