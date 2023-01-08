@@ -37,12 +37,8 @@ for d in dir:
                 s3=a[2].split("/")[0]
                 point3.append([int(s1),int(s2),int(s3)])
             #point3 = np.array(point3)
-            pointCloud = get_point_cloud.get_more_point(points, point3)
-            pointCloud = get_point_cloud.norm_point(pointCloud)
-            #file04=os.path.join(file01,"models/model_normalized.ply")
-            file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/sofa" + d + s + ".ply"
-            get_point_cloud.save_point(pointCloud, file04)
-            """
+            pointCloud = get_point_cloud.get_10000_point(points, point3)
+            
             if(pointCloud.shape[0] < 10000):
                 print("ポイント数が足りないので保存しません")
             else:
@@ -50,6 +46,6 @@ for d in dir:
                 #file04=os.path.join(file01,"models/model_normalized.ply")
                 file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/sofa/" + d + s + ".ply"
                 get_point_cloud.save_point(pointCloud, file04)
-            """
+            
         except FileNotFoundError:
             print("データがないのでスキップ")

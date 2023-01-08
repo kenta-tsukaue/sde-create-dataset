@@ -16,8 +16,8 @@ def get_norm(vec):
 #面積に応じて三角形上に点を打つ
 
 def get_more_point(vertex:np.array, faces:list):
-    print("頂点の数" + str(vertex.shape[0]))
-    print("表面の数" + str(len(faces)))
+    #print("頂点の数" + str(vertex.shape[0]))
+    #print("表面の数" + str(len(faces)))
     if(vertex.shape[0] > 10000):
         print("増量後の頂点の数" + str(vertex.shape[0]))
         vertex = point_num_to_10000(vertex)
@@ -37,8 +37,8 @@ def get_more_point(vertex:np.array, faces:list):
             #print(get_norm(vec_ab) ** 2 * get_norm(vec_ac) ** 2 - np.dot(vec_ab, vec_ac) ** 2)
             S = 0.5 * np.sqrt(get_norm(vec_ab) ** 2 * get_norm(vec_ac) ** 2 - np.dot(vec_ab, vec_ac) ** 2)
 
-            if(index % 1000 == 0):
-                print(S)
+            #if(index % 1000 == 0):
+            #    print(S)
 
             num = 0
             point_num = S * 1000
@@ -137,9 +137,9 @@ def norm_point(vertex):
             z_min = i[2]
     
     #XとYとZの最大値からziku_maxを取得する
-    print("======x======\n" + "最小値:" + str(x_min) + "\n最大値" + str(x_max))
-    print("======y======\n" + "最小値:" + str(y_min) + "\n最大値" + str(y_max))
-    print("======z======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
+    #print("======x======\n" + "最小値:" + str(x_min) + "\n最大値" + str(x_max))
+    #print("======y======\n" + "最小値:" + str(y_min) + "\n最大値" + str(y_max))
+    #print("======z======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
     ziku_max = x_max
     if ziku_max < abs(x_min):
         ziku_max = abs(x_min)
@@ -151,7 +151,7 @@ def norm_point(vertex):
         ziku_max = z_max
     if ziku_max < abs(z_min):
         ziku_max = abs(z_min)
-    print("軸の最大は" + str(ziku_max))
+    #print("軸の最大は" + str(ziku_max))
     ratio = 1 / ziku_max
 
     return vertex * ratio
