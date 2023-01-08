@@ -24,11 +24,10 @@ for d in dir:
     save_path_folder = os.path.join(save_path,folder_name)
     save_path_folder_listdir = os.listdir(save_path_folder)
     print("この項目の現在のファイルの数は", len(save_path_folder_listdir))
-
-    while len(save_path_folder_listdir) <= 5100:
+    while len(save_path_folder_listdir) <= 6100:
         print("もう一周行います")
         for s in dir1: 
-            if len(save_path_folder_listdir) > 5100:
+            if len(save_path_folder_listdir) > 6100:
                 print("この項目はデータ数5100に達したので生成は行いません")
                 continue
             #print("=============" + s + "=============")
@@ -70,6 +69,8 @@ for d in dir:
                     random_num = str(int(random.random() * 100))
                     file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/" + folder_name + "/" + d + s + random_num +".ply"
                     get_point_cloud.save_point(pointCloud, file04)
+                    #ファイル数を更新
+                    save_path_folder_listdir = os.listdir(save_path_folder)
             
             except FileNotFoundError:
                 print("データがないのでスキップ")
