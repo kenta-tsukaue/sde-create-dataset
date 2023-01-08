@@ -9,7 +9,7 @@ dir=os.listdir(path)
 for d in dir:
     folder_name = ""
     print("項目は", d)
-    if(d!="sofa" and d!="cellPhone" and d!="cellPhone2" and d!="box" and d!="box2" and d!="box3" and d!="box4" and d!="cap" and d!="bench" and d!="bottle" and d!="bowl" and d!="can" and d!="bathtub"):
+    if(d!="sofa" and d!="cellPhone" and d!="cellPhone2" and d!="box" and d!="box2" and d!="box3" and d!="box4" and d!="cap" and d!="bench" and d!="bottle" and d!="bowl" and d!="can" and d!="bag" and d!="bathtub"):
         print("スキップ")
         continue
     if d == "sofa" or d == "cap" or d == "bag" or d == "bench" or d == "bottle" or d == "bowl" or d == "can" or d == "bathtub":
@@ -24,7 +24,7 @@ for d in dir:
     save_path_folder = os.path.join(save_path,folder_name)
     save_path_folder_listdir = os.listdir(save_path_folder)
     print("この項目の現在のファイルの数は", len(save_path_folder_listdir))
-    while len(save_path_folder_listdir) <= 50:
+    while len(save_path_folder_listdir) <= 610:
         print("もう一周行います")
         for s in dir1: 
             if len(save_path_folder_listdir) > 50:
