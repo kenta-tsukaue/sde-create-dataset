@@ -41,7 +41,7 @@ def get_more_point(vertex:np.array, faces:list):
             #    print(S)
 
             num = 0
-            point_num = S * 1000
+            point_num = S * 3000
 
             #点を打つ()
             while num < point_num:

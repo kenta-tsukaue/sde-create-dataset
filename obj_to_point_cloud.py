@@ -71,6 +71,7 @@ for d in dir:
                     get_point_cloud.save_point(pointCloud, file04)
                     #ファイル数を更新
                     save_path_folder_listdir = os.listdir(save_path_folder)
+                    print("現在のファイル数は", len(save_path_folder_listdir))
             
             except FileNotFoundError:
                 print("データがないのでスキップ")
