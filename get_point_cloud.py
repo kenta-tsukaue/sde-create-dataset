@@ -81,7 +81,7 @@ def get_10000_point(vertex:np.array, faces:list):
             #    print(S)
 
             num = 0
-            point_num = S * 3000
+            point_num = S * 1000
             
             #print(86, point_num)
             #点を打つ()
