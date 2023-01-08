@@ -1,12 +1,14 @@
 import os
 import numpy as np
 import get_point_cloud
+import random
+
 path="/public/yasudak/tsukaue/data/ShapeNetCore.v2/"
 save_path="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/"
 dir=os.listdir(path)
 for d in dir:
-    print(d)
     folder_name = ""
+    print("項目は", d)
     if(d!="sofa" and d!="cellPhone" and d!="cellPhone2" and d!="box" and d!="box2" and d!="box3" and d!="box4" and d!="cap" and d!="bench" and d!="bottle" and d!="bowl" and d!="can" and d!="bathtub"):
         print("スキップ")
         continue
@@ -22,9 +24,11 @@ for d in dir:
     save_path_folder = os.path.join(save_path,folder_name)
     save_path_folder_listdir = os.listdir(save_path_folder)
     print("この項目の現在のファイルの数は", len(save_path_folder_listdir))
-    
+
     while len(save_path_folder_listdir) <= 5100:
+        print("もう一周行います")
         for s in dir1: 
+            print("開始")
             if len(save_path_folder_listdir) > 5100:
                 print("この項目はデータ数5100に達したので生成は行いません")
                 continue
@@ -63,7 +67,9 @@ for d in dir:
                 else:
                     pointCloud = get_point_cloud.norm_point(pointCloud)
                     #file04=os.path.join(file01,"models/model_normalized.ply")
-                    file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/" + folder_name + "/" + d + s + ".ply"
+                    #ランダムで2桁の数字を生成
+                    random_num = str(int(random.random * 100))
+                    file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/" + folder_name + "/" + d + s + random_num +".ply"
                     get_point_cloud.save_point(pointCloud, file04)
             
             except FileNotFoundError:
