@@ -58,9 +58,10 @@ for o in dir:
 
 
 
-    """XとYの最大値を取って一番大きい値から32を作成する"""
+    """XとYとZの最大値を取って一番大きい値から32を作成する"""
     print("======x======\n" + "最小値:" + str(x_min) + "\n最大値" + str(x_max))
     print("======y======\n" + "最小値:" + str(y_min) + "\n最大値" + str(y_max))
+    print("======z======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
     ziku_max = x_max
     if ziku_max < abs(x_min):
         ziku_max = abs(x_min)
@@ -68,6 +69,10 @@ for o in dir:
         ziku_max = abs(y_min)
     if ziku_max < y_max:
         ziku_max = y_max
+    if ziku_max < abs(z_min):
+        ziku_max = abs(z_min)
+    if ziku_max < z_max:
+        ziku_max = z_max
     print("軸の最大は" + str(ziku_max))
 
 
@@ -75,12 +80,13 @@ for o in dir:
 
 
 
-    """ziku_maxからxとyの値を修正する"""
+    """ziku_maxからxとyとzの値を修正する"""
     ratio = 16 / ziku_max
 
     for i in pointData:
         i[0] = int(math.ceil(i[0] * ratio + 15))
         i[1] = int(math.ceil(i[1] * ratio + 15))
+        i[2] = int(math.ceil(i[2] * ratio + 15))
     # print(pointData)
 
 
@@ -89,7 +95,7 @@ for o in dir:
 
 
 
-    """Zを10等分する"""
+    """Zを10等分する (zも上のコードで指定してあるので必要なし)
     print("======z======\n" + "最小値:" + str(z_min) + "\n最大値" + str(z_max))
 
     z_range = z_max -z_min
@@ -104,7 +110,7 @@ for o in dir:
         z = z_min + i * step
         #z_list.append(math.floor(z * 100) / 100)
         z_list.append(z)
-    # print(z_list)
+    # print(z_list)"""
 
 
 
@@ -128,7 +134,10 @@ for o in dir:
     for i in pointData:
         x = int(i[0])
         y = int(i[1])
-        #print(x, y, i[2])
+        z = int(i[2])
+        #追加
+        standard_tensor[x][y][z] += 1
+        """
         if i[2] >= z_list[0] and i[2] < z_list[1]:
             standard_tensor[0][x][y] += 1
         elif i[2] >= z_list[1] and i[2] < z_list[2]:
@@ -257,14 +266,14 @@ for o in dir:
             standard_tensor[62][x][y] +=1
         else:
             standard_tensor[63][x][y] +=1
+        """
 
 
 
 
 
 
-
-    """それぞれの要素を 0 ~ 256 の範囲に収める"""
+    """それぞれの要素を 0 ~ 256 の範囲に収める
     temp=0
     for k in range(64):
         for i in range(64):
@@ -278,6 +287,19 @@ for o in dir:
     standard_tensor = standard_tensor.astype(np.float32)
     standard_tensor = standard_tensor / temp * 256
     standard_tensor = standard_tensor.astype(np.int32)
+    """
+
+    """それぞれの要素を 0 ~ 256 の範囲に収める"""
+#    mean = standard_tensor.mean()
+#    std = standard_tensor.std()
+    mean = standard_tensor[standard_tensor>0].mean()
+    std = standard_tensor[standard_tensor>0].std()
+#    print(mean,std)
+    standard_tensor = (standard_tensor - mean) / std *128 + 128
+    standard_tensor[standard_tensor>255] = 255
+    standard_tensor[standard_tensor<0] = 0
+    standard_tensor = standard_tensor.astype(np.int32)
+    print('range of standard_tensor=',standard_tensor.min(),standard_tensor.max())
 
     
 
@@ -296,10 +318,10 @@ for o in dir:
 
 
     
-    """3x32x32 => 32x32x3に変更"""
+    """3x32x32 => 32x32x3に変更
     standard_tensor = np.array(standard_tensor)
     standard_tensor = np.transpose(standard_tensor, (1, 2, 0))
-
+    """
 
 
 
