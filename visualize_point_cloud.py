@@ -5,7 +5,7 @@ import os
 
 #file_path = "../SDE結果/point-net-4/iter_140000"
 #file_path = "iter_50000"
-file_path = "../datas/point-cloud/sofa"
+file_path = "../datas/point-cloud/point10/can"
 
 dir = os.listdir(file_path)
 for file in dir:
