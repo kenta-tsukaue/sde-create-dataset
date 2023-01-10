@@ -62,7 +62,7 @@ for d in dir:
                     pointCloud = get_point_cloud.norm_point(pointCloud)
                     #file04=os.path.join(file01,"models/model_normalized.ply")
                     #ランダムで2桁の数字を生成
-                    random_num = str(int(random.random() * 100))
+                    random_num = str(int(random.random() * 10000))
                     file04="/public/tsukaue/graduation/sde-datas/new-data-pointCloud/" + folder_name + "/" + d + s + random_num +".ply"
                     get_point_cloud.save_point(pointCloud, file04)
                     #ファイル数を更新

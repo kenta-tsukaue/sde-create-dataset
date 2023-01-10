@@ -303,9 +303,6 @@ for o in dir:
 
     
 
-
-
-
     """それぞれのチャネルの内容を表示
     for i in range(64):
         print("==========================[" + str(i+1) + "チャネル目]=============================")
@@ -314,16 +311,10 @@ for o in dir:
         print("=================================================================")
     """
     
-
-
-
-    
     """3x32x32 => 32x32x3に変更
     standard_tensor = np.array(standard_tensor)
     standard_tensor = np.transpose(standard_tensor, (1, 2, 0))
     """
-
-
 
 
 
