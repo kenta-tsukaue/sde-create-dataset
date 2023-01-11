@@ -324,11 +324,11 @@ for folder in dir:
         """トレーニング用と検証用に分けて保存する"""
         random_num = random.random()
         #ファイル名
-        channel_file_path_train = "train_tensors/" + o[:-4]+".npy"
-        channel_file_path_test = "test_tensors/" + o[:-4]+".npy"
+        channel_file_path_train = "train/" + file[:-4]+".npy"
+        channel_file_path_test = "test/" + file[:-4]+".npy"
 
         #パス名(/public/tsukaue/graduation/sde-datas/)
-        channel_data_path = os.path.join(sde_datas_path, "data-channel-64") #ここのdata_channel_3をパラメータで受け取れるようにしたい
+        channel_data_path = os.path.join(sde_datas_path, "data-point10-channel-32") #ここのdata_channel_3をパラメータで受け取れるようにしたい
         
         if random_num <= 0.8:
             channel_file_path = os.path.join(channel_data_path, channel_file_path_train)
