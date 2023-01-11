@@ -33,8 +33,8 @@ class DataSet(tfds.core.GeneratorBasedBuilder):
         description=_DESCRIPTION,
         features=tfds.features.FeaturesDict({
             # These are the features of your dataset like images, labels ...
-            #'tensor': tfds.features.Tensor(shape=(10000, 3), dtype="float64"),
-            'tensor': tfds.features.Tensor(shape=(32, 32, 32), dtype="int32"),
+            'tensor': tfds.features.Tensor(shape=(10000, 3), dtype="float64"),
+            #'tensor': tfds.features.Tensor(shape=(32, 32, 32), dtype="int32"),
             'label': tfds.features.ClassLabel(names=['no', 'yes']),
         }),
         # If there's a common (input, target) tuple from the
@@ -53,8 +53,8 @@ class DataSet(tfds.core.GeneratorBasedBuilder):
 
     # TODO(data_set): Returns the Dict[split names, Iterator[Key, Example]]
     return {
-        'train': self._generate_examples(path + "/train_tensors"),
-        'test' : self._generate_examples(path + '/test_tensors')
+        'train': self._generate_examples(path + "/train"),
+        'test' : self._generate_examples(path + '/test')
     }
 
   def _generate_examples(self, path):
