@@ -9,7 +9,10 @@ dir=os.listdir(path)
 
 for folder in dir:
     folder_path = os.path.join(path,folder)
-    dir2=os.listdir(folder_path)
+    try:
+        dir2=os.listdir(folder_path)
+    except NotADirectoryError:
+        continue
     for ply in dir2:
         file_path = os.path.join(folder_path,ply)
         with open(file_path, 'rb') as f:
