@@ -41,7 +41,7 @@ for file in file_list:
     random_num = random.random()
     #ファイル名
     channel_file_path_train = "train/" +file[:-7]+ key +".npy"
-    channel_file_path_test = "test/" + +file[:-7]+ key +".npy"
+    channel_file_path_test = "test/" +file[:-7]+ key +".npy"
 
     if random_num <= 0.8:
         channel_file_path = os.path.join(new_path, channel_file_path_train)
