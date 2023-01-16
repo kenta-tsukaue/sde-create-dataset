@@ -28,6 +28,7 @@ for file in file_list:
     for i in range(32):
         standard_tensor.append(standard_matrix)
     pre_tensor = tensor[0]
+    standard_tensor = np.array(standard_tensor)
     new_tensor = standard_tensor
     
     for i in range(32):
