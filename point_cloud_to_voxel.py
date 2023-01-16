@@ -1,8 +1,10 @@
+# -*- coding: utf-8 -*-
 import open3d as o3d
 import pickle
 import numpy as np
 import os
 from PIL import Image
+
 
 #point10_path = "/public/tsukaue/graduation/sde-datas/new-data-pointCloud-point10"
 point10_path = "/Users/tsukauekenta/Downloads/new-data-pointCloud-pre"
@@ -118,26 +120,28 @@ for folder in point10_dir:
         input_batch = np.clip(standard_tensor, 0, 255).astype(np.uint8) #画像用に補正
         for i in range(32):
             Image.fromarray(input_batch[i]).save( save_path + "/" + file + "_channel" + str(i+1) + ".png")"""
+        
 
+        """===================保存=================="""
         with open(save_path + "/" + file,"wb")as f:
             pickle.dump(standard_tensor, f)
 
-    #print(folder + "の最大値は" + str(max)+ "です")
+        
 
 
 
-    """ ===================================== [ 表示 ] ======================================
-    # Initialize a visualizer object
-    vis = o3d.visualization.Visualizer()
-    # Create a window, name it and scale it
-    vis.create_window(window_name='Bunny Visualize', width=800, height=600)
+        """ ===================================== [ 表示 ] ======================================
+        # Initialize a visualizer object
+        vis = o3d.visualization.Visualizer()
+        # Create a window, name it and scale it
+        vis.create_window(window_name='Bunny Visualize', width=800, height=600)
 
-    # Add the voxel grid to the visualizer
-    vis.add_geometry(voxel_grid)
+        # Add the voxel grid to the visualizer
+        vis.add_geometry(voxel_grid)
 
-    # We run the visualizater
-    vis.run()
-    # Once the visualizer is closed destroy the window and clean up
-    vis.destroy_window()
+        # We run the visualizater
+        vis.run()
+        # Once the visualizer is closed destroy the window and clean up
+        vis.destroy_window()
+        """
     
-    ========================================================================================"""

@@ -3,7 +3,7 @@ import open3d as o3d
 import numpy as np
 import os
 
-path = "../datas/ply/3.ply"
+path = "../datas/point-cloud/point10/bag/bag4a1f62dbe8b091eabc49cae1a831a9e16.ply"
 with open(path, 'rb') as f:
     pointData = pickle.load(f)
 
