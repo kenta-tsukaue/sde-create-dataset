@@ -30,9 +30,9 @@ for file in file_list:
     pre_tensor = tensor[0]
     new_tensor = standard_tensor
     
-    for i in range(pre_tensor.shape[0] / 2):
-      for j in range(pre_tensor.shape[0] / 2):
-        for k in range(pre_tensor.shape[0] / 2):
+    for i in range(32):
+      for j in range(32):
+        for k in range(32):
           sum = pre_tensor[2*i][2*j][2*k] + pre_tensor[2*i][2*j][2*k+1] + pre_tensor[2*i][2*j+1][2*k] + pre_tensor[2*i][2*j+1][2*k+1]  \
               + pre_tensor[2*i+1][2*j][2*k] + pre_tensor[2*i+1][2*j][2*k+1] + pre_tensor[2*i+1][2*j+1][2*k] + pre_tensor[2*i+1][2*j+1][2*k+1]
           new_tensor[i][j][k] = sum/8
