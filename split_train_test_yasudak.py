@@ -8,6 +8,13 @@ new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-1"
 #folder_path = "../datas/yasudak_0.1/airplane2.pickle" (テスト用)
 file_list = os.listdir(folder_path)
 
+#リストの最大値を返す関数
+def return_max(list):
+  max = 0
+  for i in list:
+    if i > max:
+      max=i
+  return max
 
 for file in file_list:
   print("項目名:", file)
@@ -34,9 +41,9 @@ for file in file_list:
     for i in range(32):
       for j in range(32):
         for k in range(32):
-          sum = pre_tensor[2*i][2*j][2*k] + pre_tensor[2*i][2*j][2*k+1] + pre_tensor[2*i][2*j+1][2*k] + pre_tensor[2*i][2*j+1][2*k+1]  \
-              + pre_tensor[2*i+1][2*j][2*k] + pre_tensor[2*i+1][2*j][2*k+1] + pre_tensor[2*i+1][2*j+1][2*k] + pre_tensor[2*i+1][2*j+1][2*k+1]
-          new_tensor[i][j][k] = sum/8
+          list = [pre_tensor[2*i][2*j][2*k], pre_tensor[2*i][2*j][2*k+1], pre_tensor[2*i][2*j+1][2*k], pre_tensor[2*i][2*j+1][2*k+1],  \
+              pre_tensor[2*i+1][2*j][2*k], pre_tensor[2*i+1][2*j][2*k+1], pre_tensor[2*i+1][2*j+1][2*k], pre_tensor[2*i+1][2*j+1][2*k+1]]
+          new_tensor[i][j][k] = return_max(list)
 
 
     random_num = random.random()
