@@ -12,7 +12,7 @@ file_list = os.listdir(folder_path)
 for file in file_list:
   print("項目名:", file)
   file_path = os.path.join(folder_path, file)
-  with open(folder_path,'rb') as f1:
+  with open(file_path,'rb') as f1:
     tensordict = pickle.load(f1)
 
   for key,tensor in tensordict.items():
