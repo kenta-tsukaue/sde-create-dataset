@@ -4,7 +4,7 @@ import os
 import random
 
 folder_path = "/public/yasudak/tsukaue/sde-create-dataset/dataset"
-new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2"
+new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-1-1"
 #folder_path = "../datas/yasudak_0.1/airplane2.pickle" (テスト用)
 file_list = os.listdir(folder_path)
 
@@ -14,6 +14,8 @@ def return_max(list):
   for i in list:
     if i > max:
       max=i
+  if max > 0:
+    max = 1
   return max
 
 for file in file_list:
@@ -34,7 +36,7 @@ for file in file_list:
     standard_tensor = []
     for i in range(32):
         standard_tensor.append(standard_matrix)
-    pre_tensor = tensor[1]
+    pre_tensor = tensor[0]
     standard_tensor = np.array(standard_tensor)
     new_tensor = standard_tensor
     
@@ -44,7 +46,11 @@ for file in file_list:
           list = [pre_tensor[2*i][2*j][2*k], pre_tensor[2*i][2*j][2*k+1], pre_tensor[2*i][2*j+1][2*k], pre_tensor[2*i][2*j+1][2*k+1],  \
               pre_tensor[2*i+1][2*j][2*k], pre_tensor[2*i+1][2*j][2*k+1], pre_tensor[2*i+1][2*j+1][2*k], pre_tensor[2*i+1][2*j+1][2*k+1]]
           new_tensor[i][j][k] = return_max(list)
-  
+
+    #まずは127倍する
+    new_tensor = new_tensor * 127 #0と127だけになる
+    #プラス128する
+    new_tensor = new_tensor + 128 #128と255だけになる
 
     random_num = random.random()
     #ファイル名
