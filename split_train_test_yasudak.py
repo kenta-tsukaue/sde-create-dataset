@@ -44,8 +44,9 @@ for file in file_list:
           list = [pre_tensor[2*i][2*j][2*k], pre_tensor[2*i][2*j][2*k+1], pre_tensor[2*i][2*j+1][2*k], pre_tensor[2*i][2*j+1][2*k+1],  \
               pre_tensor[2*i+1][2*j][2*k], pre_tensor[2*i+1][2*j][2*k+1], pre_tensor[2*i+1][2*j+1][2*k], pre_tensor[2*i+1][2*j+1][2*k+1]]
           new_tensor[i][j][k] = return_max(list)
+  
 
-
+    """
     random_num = random.random()
     #ファイル名
     channel_file_path_train = "train/" +file[:-7]+ key +".npy"
@@ -56,6 +57,6 @@ for file in file_list:
     else:
         channel_file_path = os.path.join(new_path, channel_file_path_test)
     with open(channel_file_path,"wb") as f:
-        pickle.dump(new_tensor,f)
+        pickle.dump(new_tensor,f)"""
 
 
