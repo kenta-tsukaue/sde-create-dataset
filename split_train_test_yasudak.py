@@ -10,7 +10,7 @@ from pymeshfix import MeshFix
 new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-1-1"
 #folder_path = "../datas/yasudak_0.1/airplane2.pickle" (テスト用)
 folder_path = "/Users/tsukauekenta/Downloads/yasudak-data"
-save_path = "/Users/tsukauekenta/Downloads/voxel10/airplane"
+save_path = "/Users/tsukauekenta/Downloads/voxel10/car"
 file_list = os.listdir(folder_path)
 
 #リストの最大値を返す関数
@@ -25,6 +25,8 @@ def return_max(list):
 
 for file in file_list:
   print("項目名:", file)
+  if file == ".DS_Store":
+    continue
   file_path = os.path.join(folder_path, file)
   with open(file_path,'rb') as f1:
     tensordict = pickle.load(f1)
@@ -57,11 +59,11 @@ for file in file_list:
     #プラス128する
     new_tensor = new_tensor + 128 #128と255だけになる
 
-    """===================保存=================="""
+    """===================保存==================
     with open(save_path + "/" + file[:-7] + key + ".ply","wb")as f:
-        pickle.dump(new_tensor, f)
+        pickle.dump(new_tensor, f)"""
         
-    """[表示]
+    """[表示]"""
     points = []; val = []
     tmax = new_tensor.max(); tmin = new_tensor.min()
     print(tmax,tmin)
@@ -72,7 +74,7 @@ for file in file_list:
                 val.append((new_tensor[ix,iy,iz]-tmin)/(tmax-tmin) * 0.5)
     point_cloud = pv.PolyData(points)
     point_cloud.plot(opacity=val, render_points_as_spheres=False, point_size=15) # , rgba=True)
-    """
+    
 
     """[保存]
     random_num = random.random()

@@ -11,10 +11,10 @@ from pymeshfix import MeshFix
 
 #point10_path = "/public/tsukaue/graduation/sde-datas/new-data-pointCloud-point10"
 point10_path = "/Users/tsukauekenta/Downloads/new-data-pointCloud-pre"
-save_path = "/Users/tsukauekenta/Downloads/voxel10/bathtub"
+save_path = "/Users/tsukauekenta/Downloads/voxel10/sofa"
 point10_dir = os.listdir(point10_path)
 for folder in point10_dir:
-    if folder != "bathtub":
+    if folder != "sofa":
         print("sofaじゃないのでスキップ")
         continue
     folder_path = os.path.join(point10_path, folder)
