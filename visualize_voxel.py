@@ -5,13 +5,13 @@ from pyvista import examples
 from pymeshfix import MeshFix
 
 #folder_path = "/Users/tsukauekenta/Downloads/voxel5/bowl/bowl4967063fc3673caa47fe6b02985fbd02747.ply"
-folder_path ="/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/SDE結果/32x32x32_voxel5_3dConv_2/iter_545000/sample16.np"
+folder_path ="/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/SDE結果/32x32x32_voxel5_3dConv_2/iter_775000/sample1.np"
 #folder_path = "/Users/tsukauekenta/Desktop/washingMachine360e2cb74c9c4d38df3a1b0d597ce76e.npy"
 #folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/datas/point-cloud/box1eb3abf47be2022381faebbdea6bd9be4042.ply"
 
 with open(folder_path,'rb') as f1:
-  tensor = pickle.load(f1)
-#tensor = np.clip(np.array(tensor) * 255, 0, 255)
+  tensor = np.load(f1)
+tensor = np.clip(np.array(tensor) * 255, 0, 255)
 #print(tensor)
 
 for i in range(32):

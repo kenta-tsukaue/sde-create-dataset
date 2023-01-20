@@ -4,15 +4,18 @@ import pickle
 import numpy as np
 import os
 from PIL import Image
+import pyvista as pv
+from pyvista import examples
+from pymeshfix import MeshFix
 
 
 #point10_path = "/public/tsukaue/graduation/sde-datas/new-data-pointCloud-point10"
 point10_path = "/Users/tsukauekenta/Downloads/new-data-pointCloud-pre"
-save_path = "/Users/tsukauekenta/Downloads/voxel10/bowl"
+save_path = "/Users/tsukauekenta/Downloads/voxel10/bathtub"
 point10_dir = os.listdir(point10_path)
 for folder in point10_dir:
-    if folder != "bowl":
-        print("bottleじゃないのでスキップ")
+    if folder != "bathtub":
+        print("sofaじゃないのでスキップ")
         continue
     folder_path = os.path.join(point10_path, folder)
     try:
@@ -122,15 +125,25 @@ for folder in point10_dir:
             Image.fromarray(input_batch[i]).save( save_path + "/" + file + "_channel" + str(i+1) + ".png")"""
         
 
-        """===================保存=================="""
+        """=================== [ 保存 ] =================="""
         with open(save_path + "/" + file,"wb")as f:
             pickle.dump(standard_tensor, f)
 
-        
 
+        """=================== [表示] ==================
+        points = []; val = []
+        tmax = standard_tensor.max(); tmin = standard_tensor.min()
+        print(tmax,tmin)
+        for ix in range(standard_tensor.shape[0]):
+            for iy in range(standard_tensor.shape[1]):
+                for iz in range(standard_tensor.shape[2]):
+                    points.append((ix,iy,iz))
+                    val.append((standard_tensor[ix,iy,iz]-tmin)/(tmax-tmin) * 0.5)
+        point_cloud = pv.PolyData(points)
+        point_cloud.plot(opacity=val, render_points_as_spheres=False, point_size=15) # , rgba=True)
+        """
 
-
-        """ ===================================== [ 表示 ] ======================================
+        """===================================== [ 表示 ] ======================================
         # Initialize a visualizer object
         vis = o3d.visualization.Visualizer()
         # Create a window, name it and scale it
@@ -142,6 +155,6 @@ for folder in point10_dir:
         # We run the visualizater
         vis.run()
         # Once the visualizer is closed destroy the window and clean up
-        vis.destroy_window()
-        """
+        vis.destroy_window()"""
+        
     
