@@ -2,9 +2,9 @@ import pickle
 import numpy as np
 import os
 import random
-import pyvista as pv
-from pyvista import examples
-from pymeshfix import MeshFix
+#import pyvista as pv
+#from pyvista import examples
+#from pymeshfix import MeshFix
 
 folder_path = "/public/yasudak/tsukaue/sde-create-dataset/dataset"
 new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2-1"
