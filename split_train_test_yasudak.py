@@ -7,7 +7,7 @@ from pyvista import examples
 from pymeshfix import MeshFix
 
 folder_path = "/public/yasudak/tsukaue/sde-create-dataset/dataset"
-new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2"
+new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2-1"
 #folder_path = "../datas/yasudak_0.1/airplane2.pickle" (テスト用)
 #folder_path = "/Users/tsukauekenta/Downloads/yasudak-data"
 #save_path = "/Users/tsukauekenta/Downloads/voxel10/car"
@@ -43,7 +43,7 @@ for file in file_list:
     standard_tensor = []
     for i in range(32):
         standard_tensor.append(standard_matrix)
-    pre_tensor = tensor[0]
+    pre_tensor = tensor[1]
     standard_tensor = np.array(standard_tensor)
     new_tensor = standard_tensor
     
