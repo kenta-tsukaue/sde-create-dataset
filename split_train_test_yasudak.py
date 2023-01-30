@@ -7,7 +7,7 @@ import random
 #from pymeshfix import MeshFix
 
 folder_path = "/public/yasudak/tsukaue/sde-create-dataset/dataset"
-new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2-1"
+new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2-2"
 #folder_path = "../datas/yasudak_0.1/airplane2.pickle" (テスト用)
 #folder_path = "/Users/tsukauekenta/Downloads/yasudak-data"
 #save_path = "/Users/tsukauekenta/Downloads/voxel10/car"
