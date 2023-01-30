@@ -23,6 +23,39 @@ def return_max(list):
     max = 1
   return max
 
+def chgtopot(chg,clamp=False):
+  maxpixel = chg.shape[0]
+  assert chg.shape[1]==maxpixel
+  assert chg.shape[2]==maxpixel
+  chgk = np.fft.fftn(chg)
+  freq = np.fft.fftfreq(maxpixel)
+  for kx in range(maxpixel):
+    for ky in range(maxpixel):
+      for kz in range(maxpixel):
+        k2 = freq[kx]**2 + freq[ky]**2 + freq[kz]**2
+        if abs(k2)<1e-5: continue
+        chgk[kx,ky,kz] /= k2  
+  pot = np.fft.ifftn(chgk).real
+  if clamp:
+    maxval = pot.max(); minval = pot.min()
+    pot = (pot-minval) / (maxval-minval) * 255
+  return pot
+
+def pottochg(pot):
+  maxpixel = pot.shape[0]
+  assert pot.shape[1]==maxpixel
+  assert pot.shape[2]==maxpixel
+  potk = np.fft.fftn(pot)
+  freq = np.fft.fftfreq(maxpixel)
+  for kx in range(maxpixel):
+    for ky in range(maxpixel):
+      for kz in range(maxpixel):
+        k2 = freq[kx]**2 + freq[ky]**2 + freq[kz]**2
+        if abs(k2)<1e-5: continue
+        potk[kx,ky,kz] *= k2  
+  chg = np.fft.ifftn(potk).real
+  return chg
+
 for file in file_list:
   print("項目名:", file)
   if file == ".DS_Store":
@@ -43,7 +76,7 @@ for file in file_list:
     standard_tensor = []
     for i in range(32):
         standard_tensor.append(standard_matrix)
-    pre_tensor = tensor[1]
+    pre_tensor = tensor[0]
     standard_tensor = np.array(standard_tensor)
     new_tensor = standard_tensor
     
@@ -70,6 +103,9 @@ for file in file_list:
     point_cloud = pv.PolyData(points)
     point_cloud.plot(opacity=val, render_points_as_spheres=False, point_size=15) # , rgba=True)
     """
+
+    """=================[電荷からポテンシャルに変更]================"""
+    new_tensor = chgtopot(new_tensor)
 
     """[保存]"""
     random_num = random.random()
