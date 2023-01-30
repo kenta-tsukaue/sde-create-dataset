@@ -3,15 +3,17 @@ import open3d as o3d
 import numpy as np
 import os
 
-file_path = "../SDE結果/conv1d-6/iter_315000"
+file_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/3D素材"
 #file_path = "iter_50000"
 #file_path = "../datas/point-cloud/point10/can2"
 
 dir = os.listdir(file_path)
 for file in dir:
+    if file == ".DS_Store":
+        continue
     path = os.path.join(file_path, file)
     with open(path, 'rb') as f:
-        pointData = np.load(f)
+        pointData = np.load(f, allow_pickle=True)
     x_min = 0
     x_max = 0
 
