@@ -5,12 +5,7 @@ from pyvista import examples
 from pymeshfix import MeshFix
 import os
 
-#folder_path = "/Users/tsukauekenta/Downloads/voxel10/box/boxf35efdf00062e177962bfd5bcfc9bf86717.ply"
-#folder_path ="/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/SDE結果/32x32x32_voxel5_3dConv_2/iter_810000/sample16.np"
-#folder_path = "/Users/tsukauekenta/Desktop/washingMachine360e2cb74c9c4d38df3a1b0d597ce76e.npy"
-#folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/datas/point-cloud/box1eb3abf47be2022381faebbdea6bd9be4042.ply"
-#folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/SDE結果/32_voxel10/iter_500000/"
-folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/3D素材"
+folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/SDE結果/32_yasudak_2/iter_125000"
 file_list = os.listdir(folder_path)
 
 def pottochg(pot):
@@ -35,10 +30,11 @@ for file in file_list:
   file_path = os.path.join(folder_path, file)
   with open(file_path,'rb') as f1:
     tensor = np.load(f1, allow_pickle=True)
-  #tensor = np.clip(np.array(tensor) * 255, 0, 255)
+  
   #print(tensor)
 
-  #tensor = pottochg(tensor)
+  tensor = pottochg(tensor)
+  #tensor = np.clip(np.array(tensor) * 255, 0, 255)
 
   for i in range(32):
     print("=====================[", i+1, "チャネル]====================")

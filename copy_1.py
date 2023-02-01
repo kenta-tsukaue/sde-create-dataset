@@ -3,7 +3,7 @@ import numpy as np
 import os
 import random
 
-folder_path = "/public/tsukaue/graduation/sde-datas/voxel10/car"
+folder_path = "/public/tsukaue/graduation/sde-datas/voxel10/sofa"
 
 file_list = os.listdir(folder_path)
 

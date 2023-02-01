@@ -102,6 +102,7 @@ for file in file_list:
     with open(new_path + "/" + file[:-7] + key + ".ply","wb")as f:
         pickle.dump(new_tensor, f)
     """
+    
     """[表示]
     points = []; val = []
     tmax = new_tensor.max(); tmin = new_tensor.min()
