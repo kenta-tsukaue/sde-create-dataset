@@ -7,7 +7,8 @@ import random
 #from pymeshfix import MeshFix
 
 folder_path = "/public/yasudak/tsukaue/sde-create-dataset/dataset"
-new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2-2"
+#new_path = "/public/tsukaue/graduation/sde-datas/data-yasudak-2-2"
+new_path = "/public/tsukaue/graduation/sde-datas/voxel10-2"
 #folder_path = "../datas/yasudak_0.1/airplane2.pickle" (テスト用)
 #folder_path = "/Users/tsukauekenta/Downloads/yasudak-data"
 #save_path = "/Users/tsukauekenta/Downloads/voxel10/car"
@@ -56,10 +57,16 @@ def pottochg(pot):
   chg = np.fft.ifftn(potk).real
   return chg
 
+kind_list = ["airplane", "bathtub", "bike", "bus", "can", "car", "piano", "ship", "sofa", "train"]
+
 for file in file_list:
   print("項目名:", file)
   if file == ".DS_Store":
     continue
+  if file[:-7] not in kind_list:
+    print("この項目はスキップ")
+    continue
+  
   file_path = os.path.join(folder_path, file)
   with open(file_path,'rb') as f1:
     tensordict = pickle.load(f1)
@@ -87,6 +94,10 @@ for file in file_list:
               pre_tensor[2*i+1][2*j][2*k], pre_tensor[2*i+1][2*j][2*k+1], pre_tensor[2*i+1][2*j+1][2*k], pre_tensor[2*i+1][2*j+1][2*k+1]]
           new_tensor[i][j][k] = return_max(list)
 
+    """===================保存=================="""
+    with open(new_path + "/" + file[:-7] + key + ".ply","wb")as f:
+        pickle.dump(new_tensor, f)
+    
     """===================保存==================
     with open(new_path + "/" + file[:-7] + key + ".ply","wb")as f:
         pickle.dump(new_tensor, f)
@@ -104,10 +115,11 @@ for file in file_list:
     point_cloud.plot(opacity=val, render_points_as_spheres=False, point_size=15) # , rgba=True)
     """
 
-    """=================[電荷からポテンシャルに変更]================"""
-    new_tensor = chgtopot(new_tensor)
+    """=================[電荷からポテンシャルに変更]================
+    new_tensor = chgtopot(new_tensor)"""
 
-    """[保存]"""
+
+    """[保存]
     random_num = random.random()
     #ファイル名
     channel_file_path_train = "train/" +file[:-7]+ key +".npy"
@@ -118,6 +130,6 @@ for file in file_list:
     else:
         channel_file_path = os.path.join(new_path, channel_file_path_test)
     with open(channel_file_path,"wb") as f:
-        pickle.dump(new_tensor,f)
+        pickle.dump(new_tensor,f)"""
     
 
