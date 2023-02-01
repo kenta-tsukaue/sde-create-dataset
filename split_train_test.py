@@ -3,8 +3,8 @@ import numpy as np
 import pickle
 import random
 
-path="/public/tsukaue/graduation/sde-datas/voxel10"
-new_path = "/public/tsukaue/graduation/sde-datas/data-voxel10"
+path="/public/tsukaue/graduation/sde-datas/voxel10-2"
+new_path = "/public/tsukaue/graduation/sde-datas/data-voxel10-2"
 dir=os.listdir(path)
 
 for folder in dir:
