@@ -66,7 +66,7 @@ for file in file_list:
   if file[:-7] not in kind_list:
     print("この項目はスキップ")
     continue
-  
+
   file_path = os.path.join(folder_path, file)
   with open(file_path,'rb') as f1:
     tensordict = pickle.load(f1)
@@ -95,7 +95,7 @@ for file in file_list:
           new_tensor[i][j][k] = return_max(list)
 
     """===================保存=================="""
-    with open(new_path + "/" + file[:-7] + key + ".ply","wb")as f:
+    with open(new_path + "/" + file[:-7] + "/" + key + ".ply","wb")as f:
         pickle.dump(new_tensor, f)
     
     """===================保存==================
