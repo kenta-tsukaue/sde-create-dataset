@@ -12,5 +12,5 @@ for file in file_list:
     with open(file_path,'rb') as f1:
         tensor = pickle.load(f1)
     
-    with open(folder_path + "/a" + file[:-4]  + ".ply","wb")as f:
+    with open(folder_path + "/b" + file[:-4]  + ".ply","wb")as f:
         pickle.dump(tensor, f)
