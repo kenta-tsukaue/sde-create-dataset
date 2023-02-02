@@ -49,7 +49,7 @@ class DataSet(tfds.core.GeneratorBasedBuilder):
     """Returns SplitGenerators."""
     # TODO(data_set): Downloads the data and defines the splits
     #path = "/public/tsukaue/graduation/sde-datas/data-point-10000-4"
-    path = "/public/tsukaue/graduation/sde-datas/data-voxel10-2"
+    path = "/public/tsukaue/graduation/sde-datas/data-voxel10-3"
 
     # TODO(data_set): Returns the Dict[split names, Iterator[Key, Example]]
     return {
