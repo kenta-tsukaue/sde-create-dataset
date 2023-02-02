@@ -4,7 +4,7 @@ import pickle
 import random
 
 path="/public/tsukaue/graduation/sde-datas/voxel10-2"
-new_path = "/public/tsukaue/graduation/sde-datas/data-voxel10-2"
+new_path = "/public/tsukaue/graduation/sde-datas/data-voxel10-3"
 dir=os.listdir(path)
 
 for folder in dir:
