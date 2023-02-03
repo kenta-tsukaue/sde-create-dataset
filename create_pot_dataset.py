@@ -41,7 +41,7 @@ for folder in folder_list:
         tensor = chgtopot(tensor)
 
         #(-1:1の間に)正規化
-        tensor = np.clip(tensor, -1, 1)
+        #tensor = np.clip(tensor, -1, 1)
 
         #保存
         with open(save_path + "/" + folder + "/" + file[:-7] + ".ply","wb")as f:
