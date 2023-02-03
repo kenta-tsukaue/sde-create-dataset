@@ -3,8 +3,8 @@ import numpy as np
 import os
 import pickle
 
-dataset_path = "/pulic/tsukaue/graduation/sde-datas/data-voxel10-3"
-save_path = "/pulic/tsukaue/graduation/sde-datas/data-voxel10-3-pot"
+dataset_path = "/public/tsukaue/graduation/sde-datas/data-voxel10-3"
+save_path = "/public/tsukaue/graduation/sde-datas/data-voxel10-3-pot"
 
 folder_list = os.listdir(dataset_path)
 
