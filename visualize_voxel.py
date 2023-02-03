@@ -5,7 +5,7 @@ from pyvista import examples
 from pymeshfix import MeshFix
 import os
 
-folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/datas/voxel10-3-pot"
+folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/SDE結果/32_yasudak_2/iter_480000"
 file_list = os.listdir(folder_path)
 
 def pottochg(pot):

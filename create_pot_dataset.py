@@ -27,6 +27,12 @@ def chgtopot(chg,clamp=False):
     pot = (pot-minval) / (maxval-minval) * 255
   return pot
 
+def min_max(x, axis=None):
+    min = x.min(axis=axis, keepdims=True)
+    max = x.max(axis=axis, keepdims=True)
+    result = (x-min)/(max-min)
+    return result
+
 for folder in folder_list:
     folder_path = os.path.join(dataset_path, folder)
     data_list = os.listdir(folder_path)
@@ -40,8 +46,10 @@ for folder in folder_list:
         #電荷からポテンシャルに変更
         tensor = chgtopot(tensor)
 
+        #(0:1の間に)正規化
+        tensor = min_max(tensor)
         #(-1:1の間に)正規化
-        #tensor = np.clip(tensor, -1, 1)
+        tensor = tensor * 2 - 1
 
         #保存
         with open(save_path + "/" + folder + "/" + file[:-7] + ".ply","wb")as f:
