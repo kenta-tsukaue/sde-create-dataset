@@ -5,7 +5,7 @@ from pyvista import examples
 from pymeshfix import MeshFix
 import os
 
-folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/SDE結果/32_voxel10-2/iter_300000"
+folder_path = "/Users/tsukauekenta/Library/Mobile Documents/com~apple~CloudDocs/研究/datas/yasudak-2"
 file_list = os.listdir(folder_path)
 
 def pottochg(pot):
@@ -34,7 +34,7 @@ for file in file_list:
   #print(tensor)
 
   #tensor = pottochg(tensor)
-  tensor = np.clip(np.array(tensor) * 255, 0, 255)
+  #tensor = np.clip(np.array(tensor) * 255, 0, 255)
 
   for i in range(32):
     print("=====================[", i+1, "チャネル]====================")
