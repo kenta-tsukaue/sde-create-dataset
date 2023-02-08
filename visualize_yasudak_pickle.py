@@ -6,7 +6,7 @@ import pyvista as pv
 from pyvista import examples
 from pymeshfix import MeshFix
 
-file_path = "/Users/tsukauekenta/Downloads/bottle.pickle"
+file_path = "/Users/tsukauekenta/Downloads/タンパク質/1f88_A.pickle"
 
 #リストの最大値を返す関数
 def return_max(list):
@@ -22,7 +22,8 @@ with open(file_path,'rb') as f1:
     tensordict = pickle.load(f1)
 
 for key,tensor in tensordict.items():
-    print(key,tensor[0].shape, tensor[1].shape)
+    print(key,tensor[0].shape)
+    """[64=>32]
     standard_vector = []
     for i in range(32):
         standard_vector.append(0)
@@ -43,8 +44,9 @@ for key,tensor in tensordict.items():
                     pre_tensor[2*i+1][2*j][2*k], pre_tensor[2*i+1][2*j][2*k+1], pre_tensor[2*i+1][2*j+1][2*k], pre_tensor[2*i+1][2*j+1][2*k+1]]
                 print(list)
                 new_tensor[i][j][k] = return_max(list)
-
-    #print(tensor.shape)
+    """
+    new_tensor = tensor
+    print(tensor.shape)
     points = []; val = []
     tmax = new_tensor.max(); tmin = new_tensor.min()
     print(tmax,tmin)
@@ -54,4 +56,4 @@ for key,tensor in tensordict.items():
                 points.append((ix,iy,iz))
                 val.append((new_tensor[ix,iy,iz]-tmin)/(tmax-tmin) * 0.5)
     point_cloud = pv.PolyData(points)
-    point_cloud.plot(opacity=val, render_points_as_spheres=False, point_size=15) # , rgba=True)
+    point_cloud.plot(opacity=val, render_points_as_spheres=False, point_size=15, rgba=True)

@@ -3,8 +3,8 @@ import numpy as np
 import pickle
 import random
 
-path="/public/tsukaue/graduation/sde-datas/voxel10-2"
-new_path = "/public/tsukaue/graduation/sde-datas/data-voxel10-3"
+path="/public/yasudak/tsukaue/GPCR/rot"
+new_path = "/public/tsukaue/graduation/sde-datas/data-GPCR-1"
 dir=os.listdir(path)
 
 for folder in dir:
@@ -23,7 +23,10 @@ for folder in dir:
         #ファイル名
         channel_file_path_train = "train/" + ply[:-4]+".npy"
         channel_file_path_test = "test/" + ply[:-4]+".npy"
+        
+        #どちらにも保存
 
+        
         if random_num <= 0.8:
             channel_file_path = os.path.join(new_path, channel_file_path_train)
         else:
