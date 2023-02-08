@@ -13,17 +13,22 @@ for ply in dir:
         pointData_list = pickle.load(f)
     pointData = pointData_list[0]
 
+    for i in range(pointData.shape(0)):
+        for j in range(pointData.shape(1)):
+            for k in range(pointData.shape(2)):
+                print(pointData[i][j][k])
     #次元の順番を変更
     pointData = pointData.transpose(3, 0, 1, 2)
-    
+
     #ファイル名
     channel_file_path_train = "train/" + ply[:-7]+".npy"
     channel_file_path_test = "test/" + ply[:-7]+".npy"
     
     #どちらにも保存
+    """
     file_path_train = os.path.join(new_path, channel_file_path_train)
     file_path_test = os.path.join(new_path, channel_file_path_test)
     with open(file_path_train,"wb") as f:
         pickle.dump(pointData,f)
     with open(file_path_test,"wb") as f:
-        pickle.dump(pointData,f)
+        pickle.dump(pointData,f)"""
