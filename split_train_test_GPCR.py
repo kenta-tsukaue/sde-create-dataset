@@ -12,7 +12,7 @@ for ply in dir:
     with open(file_path, 'rb') as f:
         pointData_list = pickle.load(f)
     pointData = pointData_list[0]
-
+    pointData = np.array(pointData)
     for i in range(pointData.shape(0)):
         for j in range(pointData.shape(1)):
             for k in range(pointData.shape(2)):
