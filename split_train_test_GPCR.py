@@ -31,10 +31,10 @@ for ply in dir:
     channel_file_path_test = "test/" + ply[:-7]+".npy"
     
     #どちらにも保存
-    """
+
     file_path_train = os.path.join(new_path, channel_file_path_train)
     file_path_test = os.path.join(new_path, channel_file_path_test)
     with open(file_path_train,"wb") as f:
         pickle.dump(pointData,f)
     with open(file_path_test,"wb") as f:
-        pickle.dump(pointData,f)"""
+        pickle.dump(pointData,f)
