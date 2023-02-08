@@ -13,12 +13,16 @@ for ply in dir:
         pointData_list = pickle.load(f)
     pointData = pointData_list[0]
     pointData = np.array(pointData)
+
+    #0~1から-1~1にする
+    pointData = pointData * 2 - 1
     """
     for i in range(pointData.shape[0]):
         for j in range(pointData.shape[1]):
             for k in range(pointData.shape[2]):
                 print(pointData[i][j][k])"""
-    print(pointData.max(), pointData.min())
+
+
     #次元の順番を変更
     pointData = pointData.transpose(3, 0, 1, 2)
 
